@@ -11,7 +11,8 @@ import androidx.compose.ui.unit.dp
 // Composable bir fonksiyon tanımlıyoruz. Bu, bir Jetpack Compose UI bileşenidir.
 // ProfileScreen, bir profil ekranı temsil eder ve bir geri dönüş işlemi için bir callback fonksiyonu alır.
 @Composable
-fun ProfileScreen(onBackClick: () -> Unit) {
+fun ProfileScreen(onBackClick: () -> Unit, uiState: ProfileUiState) {
+
 
     // Bir sütun (Column) yerleşimi tanımlıyoruz.
     // Modifier.fillMaxSize() ile bu sütun, ekranın tamamını kaplar.

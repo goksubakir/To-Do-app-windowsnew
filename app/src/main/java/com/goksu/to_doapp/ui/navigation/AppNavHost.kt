@@ -1,11 +1,14 @@
 package com.goksu.to_doapp.ui.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.goksu.to_doapp.screen.home.HomeScreen
+import com.goksu.to_doapp.screen.profile.ProfileRoute
 import com.goksu.to_doapp.screen.profile.ProfileScreen
+import com.goksu.to_doapp.screen.profile.ProfileViewModel
 import com.goksu.to_doapp.screen.splash.SplashScreen
 
 
@@ -53,11 +56,14 @@ fun AppNavHost(navController: NavHostController) {
         composable(Route.Profile.route) {
             // ProfileScreen bileşenini çağırıyoruz.
             // Kullanıcı geri dönmek istediğinde `onBackClick` callback'i çağrılır.
-            ProfileScreen(
+
+            val viewModel = hiltViewModel<ProfileViewModel>()
+            ProfileRoute(
                 onBackClick = {
-                    // Bir önceki ekrana geri döneriz.
                     navController.popBackStack()
-                }
+                },
+                viewModel = viewModel
+
             )
         }
     }

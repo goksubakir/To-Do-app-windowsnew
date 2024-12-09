@@ -1,4 +1,4 @@
-package com.goksu.to_doapp.screen.profil
+package com.goksu.to_doapp.screen.profile
 
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -7,10 +7,9 @@ import kotlinx.coroutines.flow.asStateFlow
 import javax.inject.Inject
 
 
-
 @HiltViewModel
-class ProfileViewModel @Inject constructor(): ViewModel(){
+class ProfileViewModel @Inject constructor() : ViewModel() {
 
-    private val _uiState=MutableStateFlow(ProfileUiState())
-    val uiState get()=_uiState.asStateFlow()
+    private val _uiState = MutableStateFlow(ProfileUiState())
+    val uiState get() = _uiState.asStateFlow()
 }

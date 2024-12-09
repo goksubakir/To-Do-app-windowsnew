@@ -1,8 +1,9 @@
-package com.goksu.to_doapp.ui.screen.splash
+package com.goksu.to_doapp.screen.splash
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.goksu.to_doapp.ui.screen.splash.SplashViewModel
 
 @Composable
 fun SplashRoute(
@@ -11,9 +12,11 @@ fun SplashRoute(
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
-    if (!uiState.isLoading) {
-        onSplashCompleted() // Splash ekranı bittiğinde bir işlem tetiklenir
-    } else {
-        SplashScreen()
-    }
+
+    SplashScreen(
+        onSplashComplete = {
+            onSplashCompleted()
+        }
+    )
+
 }

@@ -9,12 +9,12 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 fun ProfileRoute(
     viewModel: ProfileViewModel,
     onBackClick: () -> Unit
-){
+) {
 
-    val uiState by viewModel.uistate.collectAsStateWithLifecycle()
+    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
     ProfileScreen(
-        onBackClick=onBackClick
-        uiState= uiState
+        onBackClick = onBackClick,
+        uiState = uiState
     )
 }
