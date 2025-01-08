@@ -7,9 +7,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.goksu.to_doapp.screen.home.HomeScreen
 import com.goksu.to_doapp.screen.profile.ProfileRoute
-import com.goksu.to_doapp.screen.profile.ProfileScreen
 import com.goksu.to_doapp.screen.profile.ProfileViewModel
-import com.goksu.to_doapp.screen.splash.SplashScreen
+import com.goksu.to_doapp.screen.splash.SplashRoute
+import com.goksu.to_doapp.screen.splash.SplashViewModel
 
 
 // Composable bir fonksiyon tanımlıyoruz. Bu, uygulama için bir navigasyon sistemi sağlar.
@@ -26,17 +26,14 @@ fun AppNavHost(navController: NavHostController) {
     ) {
         // Splash ekranını tanımlıyoruz. Bu, `Route.Splash.route` rotasıyla ilişkilidir.
         composable(Route.Splash.route) {
-            // SplashScreen bileşenini çağırıyoruz.
-            // onSplashComplete callback'i Splash ekranının tamamlandığında çağrılır.
-            SplashScreen(
+            val viewModel = hiltViewModel<SplashViewModel>()
+            SplashRoute(
                 onSplashComplete = {
-                    // Ana ekrana yönlendirme yaparız.
                     navController.navigate(Route.Home.route) {
-                        // Splash ekranını geri yığıttan (back stack) kaldırıyoruz.
-                        // `inclusive = true` ile Splash ekranı tamamen silinir.
                         popUpTo(Route.Splash.route) { inclusive = true }
                     }
-                }
+                },
+                viewModel = viewModel
             )
         }
 
