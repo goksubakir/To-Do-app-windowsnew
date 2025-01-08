@@ -1,13 +1,13 @@
-package com.goksu.to_doapp.ui.screen.splash
+package com.goksu.to_doapp.screen.splash
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-import androidx.lifecycle.viewModelScope
 
 @HiltViewModel
 class SplashViewModel @Inject constructor() : ViewModel() {
@@ -17,7 +17,7 @@ class SplashViewModel @Inject constructor() : ViewModel() {
 
     init {
         viewModelScope.launch {
-            delay(3000) // Splash ekranı 3 saniye bekleyecek
+            delay(2500) // Splash ekranı 3 saniye bekleyecek
             _uiState.value = SplashUiState(isLoading = false)
         }
     }

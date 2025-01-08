@@ -10,23 +10,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Card
-
-
-//@Composable
-//fun HomeScreen(onProfileClick: () -> Unit) {
-//    Column(
-//        modifier = Modifier.fillMaxSize(),
-//        horizontalAlignment = Alignment.CenterHorizontally,
-//        verticalArrangement = Arrangement.Center
-//    ) {
-//        Text(text = "Home Screen")
-//        Spacer(modifier = Modifier.height(16.dp))
-//        Button(onClick = onProfileClick) {
-//            Text("Go to Profile")
-//        }
-//    }
-//}
-
 // HomeScreen adlı bir Composable fonksiyon tanımlıyoruz. Bu fonksiyon ana ekranı oluşturur.
 // Kullanıcı profil ekranına geçmek istediğinde `onProfileClick` callback'i çağrılır.
 @Composable

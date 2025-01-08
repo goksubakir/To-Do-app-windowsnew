@@ -13,7 +13,7 @@ import kotlinx.coroutines.delay
 // Bu fonksiyon, uygulama açıldığında görülen giriş ekranını temsil eder.
 // `onSplashComplete` callback'i, Splash ekranının tamamlandığını bildirmek için çağrılır.
 @Composable
-fun SplashScreen(onSplashComplete: () -> Unit) {
+fun SplashScreen(onSplashComplete: () -> Unit, uiState: SplashUiState) {
 
     // LaunchedEffect bir yan etki (side effect) işlemi tanımlamak için kullanılır.
     // `Unit` parametresi, bu yan etkinin sadece bir kez çalıştırılmasını sağlar.
