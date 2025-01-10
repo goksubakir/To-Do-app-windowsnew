@@ -5,7 +5,6 @@ import androidx.compose.runtime.getValue
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 
 @Composable
-
 fun ProfileRoute(
     viewModel: ProfileViewModel,
     onBackClick: () -> Unit

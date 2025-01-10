@@ -1,6 +1,6 @@
 [versions]
 accompanist-permissions = "0.35.0-alpha"
-agp = "8.1.4"
+agp = "8.7.3"
 glide-compose = "1.0.0-beta01"
 composeNavigation = "1.4.0"
 constraintlayout-compose = "1.0.1"

@@ -18,7 +18,7 @@ fun SplashScreen(onSplashComplete: () -> Unit, uiState: SplashUiState) {
     // LaunchedEffect bir yan etki (side effect) işlemi tanımlamak için kullanılır.
     // `Unit` parametresi, bu yan etkinin sadece bir kez çalıştırılmasını sağlar.
     LaunchedEffect(Unit) {
-        delay(2500) // 2 saniyelik bir gecikme (Splash ekranının gösterim süresi).
+        delay(2000) // 2 saniyelik bir gecikme (Splash ekranının gösterim süresi).
         onSplashComplete() // Splash ekranı tamamlandığında, callback fonksiyonu çağrılır.
     }
 

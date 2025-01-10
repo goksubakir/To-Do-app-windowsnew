@@ -10,6 +10,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Card
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.ui.tooling.preview.Preview
+
 // HomeScreen adlı bir Composable fonksiyon tanımlıyoruz. Bu fonksiyon ana ekranı oluşturur.
 // Kullanıcı profil ekranına geçmek istediğinde `onProfileClick` callback'i çağrılır.
 @Composable
@@ -77,3 +80,10 @@ fun TaskCard(taskName: String) {
     }
 }
 
+@Preview
+@Composable
+fun HomeScreenPreview(){
+     MaterialTheme {
+         HomeScreen {  }
+     }
+}
