@@ -13,7 +13,6 @@ fun SplashRoute(
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
-    // SplashScreen çağrısı
     SplashScreen(
         uiState = uiState,
         onSplashComplete = onSplashComplete

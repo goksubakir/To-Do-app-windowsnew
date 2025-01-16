@@ -17,7 +17,7 @@ class SplashViewModel @Inject constructor() : ViewModel() {
 
     init {
         viewModelScope.launch {
-            delay(2500) // Splash ekranı 3 saniye bekleyecek
+            delay(2500)
             _uiState.value = SplashUiState(isLoading = false)
         }
     }

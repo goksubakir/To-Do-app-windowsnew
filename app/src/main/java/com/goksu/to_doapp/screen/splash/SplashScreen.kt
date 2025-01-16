@@ -9,26 +9,18 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Text
 import kotlinx.coroutines.delay
 
-// SplashScreen adlı bir Composable fonksiyon tanımlıyoruz.
-// Bu fonksiyon, uygulama açıldığında görülen giriş ekranını temsil eder.
-// `onSplashComplete` callback'i, Splash ekranının tamamlandığını bildirmek için çağrılır.
 @Composable
 fun SplashScreen(onSplashComplete: () -> Unit, uiState: SplashUiState) {
 
-    // LaunchedEffect bir yan etki (side effect) işlemi tanımlamak için kullanılır.
-    // `Unit` parametresi, bu yan etkinin sadece bir kez çalıştırılmasını sağlar.
     LaunchedEffect(Unit) {
-        delay(2000) // 2 saniyelik bir gecikme (Splash ekranının gösterim süresi).
-        onSplashComplete() // Splash ekranı tamamlandığında, callback fonksiyonu çağrılır.
+        delay(2000)
+        onSplashComplete()
     }
 
-    // Box, ekranın tamamını kaplayan bir kapsayıcıdır.
-    // İçeriğin belirli bir yerde hizalanmasını sağlar.
     Box(
-        modifier = Modifier.fillMaxSize(), // Box, ekranın tamamını doldurur.
-        contentAlignment = Alignment.Center // İçerik yatay ve dikey olarak ortalanır.
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
     ) {
-        // Ekranda bir hoş geldiniz mesajı gösteriyoruz.
-        Text(text = "Welcome To My To-Do App") // "Welcome To My To-Do App" yazısı.
+        Text(text = "Welcome To My To-Do App")
     }
 }
