@@ -6,8 +6,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 
 @Composable
 fun ProfileRoute(
-    viewModel: ProfileViewModel,
-    onBackClick: () -> Unit
+    viewModel: ProfileViewModel, onBackClick: () -> Unit
 ) {
 
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
