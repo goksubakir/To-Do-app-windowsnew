@@ -1,4 +1,4 @@
-package com.goksu.to_doapp.screen.randomtext
+package com.goksu.to_doapp.screen.home
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Button

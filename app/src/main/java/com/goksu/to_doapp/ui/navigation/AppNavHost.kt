@@ -6,12 +6,11 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.goksu.to_doapp.screen.home.HomeScreen
-import com.goksu.to_doapp.screen.randomtext.RandomTextScreen
+import com.goksu.to_doapp.screen.home.RandomTextScreen
 import com.goksu.to_doapp.screen.profile.ProfileRoute
 import com.goksu.to_doapp.screen.profile.ProfileViewModel
 import com.goksu.to_doapp.screen.splash.SplashRoute
 import com.goksu.to_doapp.screen.splash.SplashViewModel
-import com.goksu.to_doapp.screen.randomtext.RandomTextScreen
 
 @Composable
 fun AppNavHost(navController: NavHostController) {
