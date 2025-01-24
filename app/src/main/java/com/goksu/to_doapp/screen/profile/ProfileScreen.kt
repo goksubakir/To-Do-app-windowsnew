@@ -38,12 +38,12 @@ fun ProfileScreen(
         ) {
             Column(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(16.dp),
+                .fillMaxWidth()
+                    .padding(12.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Image(
-                    painter = painterResource(id = R.drawable.ic_action_name),
+                    painter = painterResource(id = R.drawable.baseline_face_2_24),
                     contentDescription = "Profile Picture",
                     modifier = Modifier
                         .size(100.dp)
@@ -102,8 +102,8 @@ fun ProfileScreen(
                 .padding(vertical = 1.dp),
             horizontalArrangement = Arrangement.SpaceAround
         ) {
-            ReportCard(title = "Psychological Report")
-            ReportCard(title = "Monthly Report")
+            ReportCard(title = "Psychological Report") //TODO: Raporlar icin ayri bir ekran acilmali
+            ReportCard(title = "Monthly Report") //TODO: Degerler Kullanicidan alinmali ve ona gore analizi yapilmali.
         }
         Row(
             modifier = Modifier
@@ -111,8 +111,8 @@ fun ProfileScreen(
                 .padding(vertical = 10.dp),
             horizontalArrangement = Arrangement.SpaceAround
         ) {
-            ReportCard(title = "Daily Prediction")
-            ReportCard(title = "Love Report")
+            ReportCard(title = "Daily Prediction") //TODO: Raporlar icin ayri bir ekran acilmali
+            ReportCard(title = "Love Report") //TODO: Degerler Kullanicidan alinmali ve ona gore analizi yapilmali.
         }
 
         Column(

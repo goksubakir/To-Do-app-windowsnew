@@ -18,7 +18,7 @@ class ProfileViewModel @Inject constructor() : ViewModel() {
         // Mock data - replace with actual data fetching
         viewModelScope.launch {
             _uiState.value = ProfileUiState(
-                name = "Goksu Bakir", // TODO: Burada kullanicidan veri alinacak
+                name = "Ad Soyad", // TODO: Burada kullanicidan veri alinacak
                 completedTasks = 15,
                 pendingTasks = 5,// TODO: Burada kullanicidan veri alinacak
                         totalTasks = 20

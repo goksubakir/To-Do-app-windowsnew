@@ -6,25 +6,20 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.goksu.to_doapp.screen.home.HomeScreen
+import com.goksu.to_doapp.screen.randomtext.RandomTextScreen
 import com.goksu.to_doapp.screen.profile.ProfileRoute
 import com.goksu.to_doapp.screen.profile.ProfileViewModel
 import com.goksu.to_doapp.screen.splash.SplashRoute
 import com.goksu.to_doapp.screen.splash.SplashViewModel
+import com.goksu.to_doapp.screen.randomtext.RandomTextScreen
 
-
-// Composable bir fonksiyon tanımlıyoruz. Bu, uygulama için bir navigasyon sistemi sağlar.
-// `AppNavHost` adındaki bu fonksiyon, bir `NavHostController` alır ve onu kullanarak ekranlar arasında geçiş yapar.
 @Composable
 fun AppNavHost(navController: NavHostController) {
-
-    // Jetpack Compose'un NavHost bileşenini kullanıyoruz.
-    // `navController` navigasyonu yönetmek için kullanılır.
-    // `startDestination` başlangıç ekranını belirtir (bu durumda Splash ekranı).
     NavHost(
-        navController = navController, // Navigasyonun kontrol edilmesini sağlar.
-        startDestination = Route.Splash.route // Uygulamanın ilk açıldığında gösterilecek ekran.
+        navController = navController,
+        startDestination = Route.Splash.route
     ) {
-        // Splash ekranını tanımlıyoruz. Bu, `Route.Splash.route` rotasıyla ilişkilidir.
+        // Splash ekranı
         composable(Route.Splash.route) {
             val viewModel = hiltViewModel<SplashViewModel>()
             SplashRoute(
@@ -37,30 +32,35 @@ fun AppNavHost(navController: NavHostController) {
             )
         }
 
-        // Home ekranını tanımlıyoruz. Bu, `Route.Home.route` rotasıyla ilişkilidir.
+        // Home ekranı
         composable(Route.Home.route) {
-            // HomeScreen bileşenini çağırıyoruz.
-            // Kullanıcı profil ekranına geçmek istediğinde `onProfileClick` callback'i çağrılır.
             HomeScreen(
                 onProfileClick = {
-                    // Profil ekranına yönlendirme yapıyoruz.
                     navController.navigate(Route.Profile.route)
+                },
+                onRandomTextClick = {
+                    navController.navigate(Route.RandomText.route)
                 }
             )
         }
 
-        // Profil ekranını tanımlıyoruz. Bu, `Route.Profile.route` rotasıyla ilişkilidir.
+        // Profil ekranı
         composable(Route.Profile.route) {
-            // ProfileScreen bileşenini çağırıyoruz.
-            // Kullanıcı geri dönmek istediğinde `onBackClick` callback'i çağrılır.
-
             val viewModel = hiltViewModel<ProfileViewModel>()
             ProfileRoute(
                 onBackClick = {
                     navController.popBackStack()
                 },
                 viewModel = viewModel
+            )
+        }
 
+        // Rastgele metin ekranı
+        composable(Route.RandomText.route) {
+            RandomTextScreen(
+                onBackClick = {
+                    navController.popBackStack()
+                }
             )
         }
     }

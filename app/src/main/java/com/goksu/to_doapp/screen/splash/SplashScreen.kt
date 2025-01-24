@@ -21,6 +21,7 @@ fun SplashScreen(onSplashComplete: () -> Unit, uiState: SplashUiState) {
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-        Text(text = "Welcome To My To-Do App")
+        Text(text = "Welcome To My To-Do App") //TODO: Splash Screen Tasarimini hallettim (Harika bir gorsel buldum).
+        //TODO: Resim ekleme ve Database olusturup kaydedilme islemlerine bak. Ece HAnima database sorulacak.
     }
 }
