@@ -92,3 +92,4 @@ fun HomeScreenPreview() {
 //TODO: En son SplashScreen icin animasyonlu tatli bir gecis arastir ve animasyon nasil eklenir ona bak. (Su an oncelik degil)
 //TODO: + simgesi ile task eklenip cikarilacak ve bir adet bar bulunacak. Bu bar Overall progress olacak tasklarin yuzdeligini hesaplayip yuzde kac tamamlandigini gosterecek.
 //TODO: Bir Database olusturulmali kullanici bilgilerini kaydetmeli ki giris icin veriyi tutabilsin.
+//TODO: XP kazanma isini en son hallet bar kismi yapildiginda hesaplat.
