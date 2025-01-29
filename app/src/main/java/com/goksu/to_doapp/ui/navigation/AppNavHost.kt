@@ -5,12 +5,14 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.goksu.to_doapp.screen.home.HomeScreen
-import com.goksu.to_doapp.screen.home.RandomTextScreen
-import com.goksu.to_doapp.screen.profile.ProfileRoute
-import com.goksu.to_doapp.screen.profile.ProfileViewModel
-import com.goksu.to_doapp.screen.splash.SplashRoute
-import com.goksu.to_doapp.screen.splash.SplashViewModel
+import com.goksu.to_doapp.ui.screen.home.HomeScreen
+import com.goksu.to_doapp.ui.screen.home.RandomTextScreen
+import com.goksu.to_doapp.ui.screen.login.LoginRoute
+import com.goksu.to_doapp.ui.screen.login.LoginViewModel
+import com.goksu.to_doapp.ui.screen.profile.ProfileRoute
+import com.goksu.to_doapp.ui.screen.profile.ProfileViewModel
+import com.goksu.to_doapp.ui.screen.splash.SplashRoute
+import com.goksu.to_doapp.ui.screen.splash.SplashViewModel
 
 @Composable
 fun AppNavHost(navController: NavHostController) {
@@ -23,7 +25,7 @@ fun AppNavHost(navController: NavHostController) {
             val viewModel = hiltViewModel<SplashViewModel>()
             SplashRoute(
                 onSplashComplete = {
-                    navController.navigate(Route.Home.route) {
+                    navController.navigate(Route.Login.route) {
                         popUpTo(Route.Splash.route) { inclusive = true }
                     }
                 },
@@ -62,5 +64,18 @@ fun AppNavHost(navController: NavHostController) {
                 }
             )
         }
+        composable(Route.Login.route) {
+            val viewModel = hiltViewModel<LoginViewModel>()
+            LoginRoute(
+                viewModel = viewModel,
+                onLoginSuccess = {
+                    navController.navigate(Route.Home.route) {
+                        popUpTo(Route.Login.route) { inclusive = true }
+                    }
+                }
+            )
+        }
+
     }
 }
+

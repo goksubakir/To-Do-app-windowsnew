@@ -1,4 +1,4 @@
-package com.goksu.to_doapp.screen.home
+package com.goksu.to_doapp.ui.screen.home
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Button
@@ -21,7 +21,6 @@ fun HomeScreen(onProfileClick: () -> Unit, onRandomTextClick: () -> Unit) {
         "Sahte Görev 3",
         "Sahte Görev 4"
     )
-
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -75,6 +74,8 @@ fun TaskCard(taskName: String) {
         )
     }
 }
+
+
 
 @Preview
 @Composable

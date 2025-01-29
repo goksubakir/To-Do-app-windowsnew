@@ -1,4 +1,4 @@
-package com.goksu.to_doapp.screen.profile
+package com.goksu.to_doapp.ui.screen.profile
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

@@ -1,4 +1,4 @@
-package com.goksu.to_doapp.screen.splash
+package com.goksu.to_doapp.ui.screen.splash
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

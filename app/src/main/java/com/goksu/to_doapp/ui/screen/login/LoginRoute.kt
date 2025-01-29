@@ -1,21 +1,19 @@
-package com.goksu.to_doapp.screen.splash
+package com.goksu.to_doapp.ui.screen.login
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 
 @Composable
-
-
-fun SplashRoute(
-    viewModel: SplashViewModel,
-    onSplashComplete: () -> Unit
+fun LoginRoute(
+    viewModel: LoginViewModel,
+    onLoginSuccess: () -> Unit
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
-    SplashScreen(
+    LoginScreen(
         uiState = uiState,
-        onSplashComplete = onSplashComplete
+        onLoginClicked = viewModel::login,
+        onLoginSuccess = onLoginSuccess
     )
 }
-

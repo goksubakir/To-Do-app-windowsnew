@@ -1,4 +1,4 @@
-package com.goksu.to_doapp.screen.profile
+package com.goksu.to_doapp.ui.screen.profile
 
 data class ProfileUiState(
     val isLoading: Boolean = false,

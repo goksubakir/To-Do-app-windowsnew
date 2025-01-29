@@ -1,4 +1,4 @@
-package com.goksu.to_doapp.screen.home
+package com.goksu.to_doapp.ui.screen.home
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Button
@@ -64,6 +64,6 @@ fun TextPreview() {
     MaterialTheme { }
     RandomTextScreen { }
 } //TODO: Boyle olmamaliydi HomeScreen de gozukmeli pop-up gibi su anlik farkli screen olarak aciliyor.
-//TODO: DUZELTILECEK MUTLAKA BAK HAFTASONU BUNA!!!!! Ece Hanim'a pazartesi anlat her seyi.
+//TODO: DUZELTILECEK MUTLAKA BAK HAFTASONU BUNA!!!!!
 
 

@@ -1,18 +1,21 @@
-package com.goksu.to_doapp.screen.profile
+package com.goksu.to_doapp.ui.screen.splash
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 
 @Composable
-fun ProfileRoute(
-    viewModel: ProfileViewModel, onBackClick: () -> Unit
-) {
 
+
+fun SplashRoute(
+    viewModel: SplashViewModel,
+    onSplashComplete: () -> Unit
+) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
-    ProfileScreen(
-        onBackClick = onBackClick,
-        uiState = uiState
+    SplashScreen(
+        uiState = uiState,
+        onSplashComplete = onSplashComplete
     )
 }
+

@@ -5,4 +5,5 @@ sealed class Route(val route: String) {
     object Home : Route("home")
     object Profile : Route("profile")
     object RandomText : Route("random_text") // Rastgele metin ekranı rotasını buraya ekledim ana sayfada gozukmesi icin
+    object Login : Route("login")
 }
