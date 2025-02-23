@@ -14,10 +14,17 @@ class LoginViewModel @Inject constructor() : ViewModel() {
     private val _uiState = MutableStateFlow(LoginUiState())
     val uiState: StateFlow<LoginUiState> = _uiState
 
-    fun login(username: String, password: String) {
+    fun onUsernameChange(newUsername: String) {
+        _uiState.value = _uiState.value.copy(username = newUsername)
+    }
+
+    fun onPasswordChange(newPassword: String) {
+        _uiState.value = _uiState.value.copy(password = newPassword)
+    }
+
+    fun login() {
         viewModelScope.launch {
-            // Simulate login logic (Replace this with real auth)
-            if (username == "admin" && password == "password") {
+            if (_uiState.value.username == "admin" && _uiState.value.password == "password") {
                 _uiState.value = _uiState.value.copy(isLoggedIn = true)
             }
         }

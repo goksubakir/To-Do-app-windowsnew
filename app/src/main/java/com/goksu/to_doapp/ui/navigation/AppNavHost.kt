@@ -1,5 +1,7 @@
 package com.goksu.to_doapp.ui.navigation
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
@@ -14,6 +16,7 @@ import com.goksu.to_doapp.ui.screen.profile.ProfileViewModel
 import com.goksu.to_doapp.ui.screen.splash.SplashRoute
 import com.goksu.to_doapp.ui.screen.splash.SplashViewModel
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun AppNavHost(navController: NavHostController) {
     NavHost(
@@ -78,4 +81,3 @@ fun AppNavHost(navController: NavHostController) {
 
     }
 }
-

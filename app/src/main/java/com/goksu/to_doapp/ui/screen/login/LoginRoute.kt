@@ -13,6 +13,8 @@ fun LoginRoute(
 
     LoginScreen(
         uiState = uiState,
+        onUsernameChange = viewModel::onUsernameChange,
+        onPasswordChange = viewModel::onPasswordChange,
         onLoginClicked = viewModel::login,
         onLoginSuccess = onLoginSuccess
     )

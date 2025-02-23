@@ -1,11 +1,8 @@
 package com.goksu.to_doapp.ui.screen.login
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.*
-import androidx.compose.material3.Button
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
-import androidx.compose.runtime.Composable
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.PasswordVisualTransformation
@@ -15,7 +12,9 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun LoginScreen(
     uiState: LoginUiState,
-    onLoginClicked: (String, String) -> Unit,
+    onUsernameChange: (String) -> Unit,
+    onPasswordChange: (String) -> Unit,
+    onLoginClicked: () -> Unit,
     onLoginSuccess: () -> Unit
 ) {
     if (uiState.isLoggedIn) {
@@ -32,21 +31,21 @@ fun LoginScreen(
         ) {
             TextField(
                 value = uiState.username,
-                onValueChange = { uiState.username = it },
+                onValueChange = { onUsernameChange(it) },
                 label = { Text("Username") },
                 modifier = Modifier.fillMaxWidth()
             )
             Spacer(modifier = Modifier.height(8.dp))
             TextField(
                 value = uiState.password,
-                onValueChange = { uiState.password = it },
+                onValueChange = { onPasswordChange(it) },
                 label = { Text("Password") },
                 visualTransformation = PasswordVisualTransformation(),
                 modifier = Modifier.fillMaxWidth()
             )
             Spacer(modifier = Modifier.height(16.dp))
             Button(
-                onClick = { onLoginClicked(uiState.username, uiState.password) },
+                onClick = onLoginClicked,
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Text("Login")
@@ -60,7 +59,9 @@ fun LoginScreen(
 fun PreviewLoginScreen() {
     LoginScreen(
         uiState = LoginUiState(),
-        onLoginClicked = { _, _ -> },
+        onUsernameChange = {},
+        onPasswordChange = {},
+        onLoginClicked = {},
         onLoginSuccess = {}
     )
 }
