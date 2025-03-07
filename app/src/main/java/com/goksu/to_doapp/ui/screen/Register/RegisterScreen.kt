@@ -1,6 +1,6 @@
-package com.goksu.to_doapp.ui.screen.login
+package com.goksu.to_doapp.ui.screen.Register
 
-import androidx.compose.foundation.clickable
+
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -12,17 +12,19 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun LoginScreen(
-    uiState: LoginUiState,
+fun RegisterScreen(
+    uiState: RegisterUiState,
     onUsernameChange: (String) -> Unit,
+    onFullNameChange: (String) -> Unit,
+    onEmailChange: (String) -> Unit,
     onPasswordChange: (String) -> Unit,
-    onLoginClicked: () -> Unit,
+    onConfirmPasswordChange: (String) -> Unit,
     onRegisterClicked: () -> Unit,
-    onLoginSuccess: () -> Unit
+    onRegisterSuccess: () -> Unit
 ) {
-    LaunchedEffect(uiState.isLoggedIn) {
-        if (uiState.isLoggedIn) {
-            onLoginSuccess()
+    LaunchedEffect(uiState.isRegistered) {
+        if (uiState.isRegistered) {
+            onRegisterSuccess()
         }
     }
 
@@ -42,9 +44,31 @@ fun LoginScreen(
             )
             Spacer(modifier = Modifier.height(8.dp))
             TextField(
+                value = uiState.fullName,
+                onValueChange = { onFullNameChange(it) },
+                label = { Text("Full Name") },
+                modifier = Modifier.fillMaxWidth()
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+            TextField(
+                value = uiState.email,
+                onValueChange = { onEmailChange(it) },
+                label = { Text("Email") },
+                modifier = Modifier.fillMaxWidth()
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+            TextField(
                 value = uiState.password,
                 onValueChange = { onPasswordChange(it) },
                 label = { Text("Password") },
+                visualTransformation = PasswordVisualTransformation(),
+                modifier = Modifier.fillMaxWidth()
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+            TextField(
+                value = uiState.confirmPassword,
+                onValueChange = { onConfirmPasswordChange(it) },
+                label = { Text("Confirm Password") },
                 visualTransformation = PasswordVisualTransformation(),
                 modifier = Modifier.fillMaxWidth()
             )
@@ -60,31 +84,26 @@ fun LoginScreen(
 
             Spacer(modifier = Modifier.height(16.dp))
             Button(
-                onClick = onLoginClicked,
+                onClick = onRegisterClicked,
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text("Login")
+                Text("Register")
             }
-
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(
-                text = "Don't have an account? Register",
-                color = Color.Blue,
-                modifier = Modifier.clickable { onRegisterClicked() }
-            )
         }
     }
 }
 
 @Preview
 @Composable
-fun PreviewLoginScreen() {
-    LoginScreen(
-        uiState = LoginUiState(),
+fun PreviewRegisterScreen() {
+    RegisterScreen(
+        uiState = RegisterUiState(),
         onUsernameChange = {},
+        onFullNameChange = {},
+        onEmailChange = {},
         onPasswordChange = {},
-        onLoginClicked = {},
+        onConfirmPasswordChange = {},
         onRegisterClicked = {},
-        onLoginSuccess = {}
+        onRegisterSuccess = {}
     )
 }

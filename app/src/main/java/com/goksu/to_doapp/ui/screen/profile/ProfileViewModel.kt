@@ -1,28 +1,34 @@
 package com.goksu.to_doapp.ui.screen.profile
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.flow.StateFlow
 import javax.inject.Inject
 
 @HiltViewModel
-class ProfileViewModel @Inject constructor() : ViewModel() {
-
+class ProfileViewModel @Inject constructor(
+    savedStateHandle: SavedStateHandle
+) : ViewModel() {
     private val _uiState = MutableStateFlow(ProfileUiState())
-    val uiState = _uiState.asStateFlow()
+    val uiState: StateFlow<ProfileUiState> = _uiState
 
     init {
-        // Mock data - replace with actual data fetching
-        viewModelScope.launch {
-            _uiState.value = ProfileUiState(
-                name = "Ad Soyad", // TODO: Burada kullanicidan veri alinacak
-                completedTasks = 15,
-                pendingTasks = 5,// TODO: Burada kullanicidan veri alinacak
-                        totalTasks = 20
-            )
-        }
+        val username = savedStateHandle.get<String>("username") ?: "User"
+        val completedTasks = savedStateHandle.get<Int>("completedTasks") ?: 0
+        val pendingTasks = savedStateHandle.get<Int>("pendingTasks") ?: 0
+        val totalTasks = savedStateHandle.get<Int>("totalTasks") ?: 0
+
+        _uiState.value = ProfileUiState(
+            username = username,
+            completedTasks = completedTasks,
+            pendingTasks = pendingTasks,
+            totalTasks = totalTasks
+        )
+    }
+
+    fun updateUsername(newUsername: String) {
+        _uiState.value = _uiState.value.copy(username = newUsername)
     }
 }

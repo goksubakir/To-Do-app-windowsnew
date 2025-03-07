@@ -64,6 +64,5 @@ fun TextPreview() {
     MaterialTheme { }
     RandomTextScreen { }
 } //TODO: Boyle olmamaliydi HomeScreen de gozukmeli pop-up gibi su anlik farkli screen olarak aciliyor.
-//TODO: DUZELTILECEK MUTLAKA BAK HAFTASONU BUNA!!!!!
 
 

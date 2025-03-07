@@ -1,13 +1,13 @@
 package com.goksu.to_doapp.ui.screen.login
 
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
+import androidx.compose.runtime.*
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 
 @Composable
 fun LoginRoute(
     viewModel: LoginViewModel,
-    onLoginSuccess: () -> Unit
+    onLoginSuccess: () -> Unit,
+    onRegisterClicked: () -> Unit
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
@@ -16,6 +16,7 @@ fun LoginRoute(
         onUsernameChange = viewModel::onUsernameChange,
         onPasswordChange = viewModel::onPasswordChange,
         onLoginClicked = viewModel::login,
-        onLoginSuccess = onLoginSuccess
+        onLoginSuccess = onLoginSuccess,
+        onRegisterClicked = onRegisterClicked
     )
 }
