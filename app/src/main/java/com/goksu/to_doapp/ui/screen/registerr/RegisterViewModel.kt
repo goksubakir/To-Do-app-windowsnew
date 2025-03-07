@@ -1,19 +1,17 @@
-package com.goksu.to_doapp.ui.screen.register
+package com.goksu.to_doapp.ui.screen.registerr
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 import com.goksu.to_doapp.data.User
-import com.goksu.to_doapp.data.UserRepositoryImpl
-import com.goksu.to_doapp.ui.screen.Register.RegisterUiState
+import kotlinx.coroutines.launch
 
 @HiltViewModel
 class RegisterViewModel @Inject constructor(
-    private val userRepository: UserRepositoryImpl
+
 ) : ViewModel() {
     private val _uiState = MutableStateFlow(RegisterUiState())
     val uiState: StateFlow<RegisterUiState> = _uiState
@@ -51,7 +49,7 @@ class RegisterViewModel @Inject constructor(
                 email = _uiState.value.email,
                 password = _uiState.value.password
             )
-            userRepository.registerUser(user)
+                    //  userRepository.registerUser(user)
             _uiState.value = _uiState.value.copy(isRegistered = true, errorMessage = null)
         }
     }

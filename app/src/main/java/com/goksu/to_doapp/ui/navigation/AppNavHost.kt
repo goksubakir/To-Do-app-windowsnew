@@ -4,20 +4,20 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.NavType
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
-import com.goksu.to_doapp.ui.screen.Register.RegisterRoute
 import com.goksu.to_doapp.ui.screen.home.HomeScreen
-import com.goksu.to_doapp.ui.screen.profile.ProfileRoute
-import com.goksu.to_doapp.ui.screen.splash.SplashRoute
-import com.goksu.to_doapp.ui.screen.splash.SplashViewModel
 import com.goksu.to_doapp.ui.screen.login.LoginRoute
 import com.goksu.to_doapp.ui.screen.login.LoginViewModel
+import com.goksu.to_doapp.ui.screen.profile.ProfileRoute
 import com.goksu.to_doapp.ui.screen.profile.ProfileViewModel
-import com.goksu.to_doapp.ui.screen.register.RegisterViewModel
+import com.goksu.to_doapp.ui.screen.registerr.RegisterRoute
+import com.goksu.to_doapp.ui.screen.registerr.RegisterViewModel
+import com.goksu.to_doapp.ui.screen.splash.SplashRoute
+import com.goksu.to_doapp.ui.screen.splash.SplashViewModel
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable

@@ -1,4 +1,4 @@
-package com.goksu.to_doapp.ui.screen.Register
+package com.goksu.to_doapp.ui.screen.registerr
 
 
 data class RegisterUiState(
