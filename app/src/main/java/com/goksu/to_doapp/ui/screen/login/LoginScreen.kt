@@ -68,7 +68,7 @@ fun LoginScreen(
 
             Spacer(modifier = Modifier.height(8.dp))
             Text(
-                text = "Don't have an account? Register",
+                text = "Don't have an account? Register Now!",
                 color = Color.Blue,
                 modifier = Modifier.clickable { onRegisterClicked() }
             )

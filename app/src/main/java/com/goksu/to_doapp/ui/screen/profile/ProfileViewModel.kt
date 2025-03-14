@@ -11,7 +11,7 @@ import javax.inject.Inject
 class ProfileViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle
 ) : ViewModel() {
-    private val _uiState = MutableStateFlow(ProfileUiState())
+    private val _uiState = MutableStateFlow(ProfileUiState(location = "Istanbul, Turkey"))
     val uiState: StateFlow<ProfileUiState> = _uiState
 
     init {
@@ -24,7 +24,8 @@ class ProfileViewModel @Inject constructor(
             username = username,
             completedTasks = completedTasks,
             pendingTasks = pendingTasks,
-            totalTasks = totalTasks
+            totalTasks = totalTasks,
+            location = "Istanbul, Turkey"
         )
     }
 

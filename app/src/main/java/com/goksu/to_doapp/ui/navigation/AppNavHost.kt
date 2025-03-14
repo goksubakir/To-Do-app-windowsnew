@@ -70,6 +70,11 @@ fun AppNavHost(navController: NavHostController) {
                 onBackClick = {
                     navController.popBackStack()
                 },
+                onLogout = {
+                    navController.navigate(Route.Login.route) {
+                        popUpTo(Route.Home.route) { inclusive = true }
+                    }
+                },
                 viewModel = viewModel,
                 completedTasks = completedTasks,
                 pendingTasks = pendingTasks,

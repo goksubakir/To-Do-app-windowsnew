@@ -7,6 +7,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 fun ProfileRoute(
     viewModel: ProfileViewModel,
     onBackClick: () -> Unit,
+    onLogout: () -> Unit,
     completedTasks: Int,
     pendingTasks: Int,
     totalTasks: Int
@@ -21,6 +22,7 @@ fun ProfileRoute(
 
     ProfileScreen(
         onBackClick = onBackClick,
+        onLogout = onLogout,
         uiState = updatedUiState,
         onUsernameChange = { viewModel.updateUsername(it) }
     )

@@ -1,11 +1,11 @@
 package com.goksu.to_doapp.ui.screen.profile
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Check
-import androidx.compose.material.icons.filled.Edit
+import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -15,10 +15,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.graphics.vector.ImageVector
 
 @Composable
 fun ProfileScreen(
     onBackClick: () -> Unit,
+    onLogout: () -> Unit,
     uiState: ProfileUiState,
     onUsernameChange: (String) -> Unit
 ) {
@@ -35,42 +37,35 @@ fun ProfileScreen(
             .padding(20.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        // **Kullanıcı Adı ve Düzenleme Butonu**
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.Center
-        ) {
-            if (isEditing) {
-                TextField(
-                    value = username,
-                    onValueChange = { username = it },
-                    modifier = Modifier.weight(1f)
-                )
-                IconButton(onClick = {
-                    isEditing = false
-                    onUsernameChange(username)
-                }) {
-                    Icon(imageVector = Icons.Filled.Check, contentDescription = "Save")
-                }
-            } else {
-                Text(
-                    text = "     Welcome, $username",
-                    fontSize = 30.sp,
-                    fontWeight = FontWeight.ExtraBold
-                    
-                )
-                IconButton(onClick = { isEditing = true }) {
-                    Icon(imageVector = Icons.Filled.Edit, contentDescription = "Edit Name")
-                }
+        if (isEditing) {
+            TextField(
+                value = username,
+                onValueChange = { username = it },
+                modifier = Modifier.fillMaxWidth(0.8f)
+            )
+            IconButton(onClick = {
+                isEditing = false
+                onUsernameChange(username)
+            }) {
+                Icon(imageVector = Icons.Filled.Check, contentDescription = "Save")
+            }
+        } else {
+            Text(
+                text = username,
+                fontSize = 26.sp,
+                fontWeight = FontWeight.Bold
+            )
+            IconButton(onClick = { isEditing = true }) {
+                Icon(imageVector = Icons.Filled.Edit, contentDescription = "Edit Name")
             }
         }
 
+        Text(text = uiState.location, fontSize = 14.sp, color = Color.Gray)
         Spacer(modifier = Modifier.height(16.dp))
 
-        // **Tamamlanan, Devam Eden ve Toplam Görev Sayıları**
         Row(
             modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.Absolute.SpaceEvenly
+            horizontalArrangement = Arrangement.SpaceEvenly
         ) {
             TaskInfoCard("Completed", uiState.completedTasks, Color.Green)
             TaskInfoCard("Pending", uiState.pendingTasks, Color.Yellow)
@@ -79,7 +74,6 @@ fun ProfileScreen(
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // **Progress Bar**
         Column(
             modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp)
         ) {
@@ -103,7 +97,16 @@ fun ProfileScreen(
             )
         }
 
-        Spacer(modifier = Modifier.height(550.dp))
+        Spacer(modifier = Modifier.height(20.dp))
+
+        Column(modifier = Modifier.fillMaxWidth()) {
+            ProfileOption(icon = Icons.Filled.Settings, text = "Settings")
+            ProfileOption(icon = Icons.Filled.Star, text = "Favorites")
+            ProfileOption(icon = Icons.Filled.ShoppingCart, text = "Premium Membership")
+            ProfileOption(icon = Icons.Filled.ExitToApp, text = "Logout", isDestructive = true, onClick = onLogout)
+        }
+
+        Spacer(modifier = Modifier.height(20.dp))
 
         Button(onClick = onBackClick, modifier = Modifier.fillMaxWidth()) {
             Text(text = "Back to Home")
@@ -111,7 +114,6 @@ fun ProfileScreen(
     }
 }
 
-// **Görev Sayılarını Gösteren Kutucuklar**
 @Composable
 fun TaskInfoCard(title: String, count: Int, color: Color) {
     Card(
@@ -136,17 +138,34 @@ fun TaskInfoCard(title: String, count: Int, color: Color) {
     }
 }
 
-// **Profil Ekranı Preview**
+@Composable
+fun ProfileOption(icon: ImageVector, text: String, isDestructive: Boolean = false, onClick: () -> Unit = {}) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(12.dp)
+            .background(if (isDestructive) Color.Red.copy(alpha = 0.1f) else Color.Transparent)
+            .clickable { onClick() },
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Icon(imageVector = icon, contentDescription = text, tint = if (isDestructive) Color.Red else Color.Black)
+        Spacer(modifier = Modifier.width(8.dp))
+        Text(text = text, fontSize = 18.sp, fontWeight = FontWeight.Medium, color = if (isDestructive) Color.Red else Color.Black)
+    }
+}
+
 @Preview(showBackground = true)
 @Composable
 fun ProfileScreenPreview() {
     ProfileScreen(
         onBackClick = { },
+        onLogout = {},
         uiState = ProfileUiState(
             username = "Göksu",
             completedTasks = 10,
             pendingTasks = 5,
-            totalTasks = 15
+            totalTasks = 15,
+            location = "Istanbul, Turkey"
         ),
         onUsernameChange = {}
     )
